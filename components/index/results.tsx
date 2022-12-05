@@ -14,29 +14,21 @@ export const Results = ({
   retirementTarget,
   yearsToRetirement,
 }: Props) => {
+  const toDisplay = (n: number) =>
+    n.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0,
+    });
+
   return (
     <SimpleGrid columns={{ base: 1, md: 4 }} gap={{ base: "5", md: "6" }}>
-      <Stat
-        label="Monthly spending"
-        value={monthlySpending.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}
-      />
+      <Stat label="Monthly spending" value={toDisplay(monthlySpending)} />
       <Stat
         label="Total yearly spending"
-        value={totalYearlySpending.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}
+        value={toDisplay(totalYearlySpending)}
       />
-      <Stat
-        label="Retirement target"
-        value={retirementTarget.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}
-      />
+      <Stat label="Retirement target" value={toDisplay(retirementTarget)} />
       <Stat
         label="Years until retirement"
         value={yearsToRetirement.toString()}
