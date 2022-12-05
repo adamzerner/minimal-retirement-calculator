@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Results } from "../components/index/results";
+import { Inputs } from "../components/index/inputs";
 
 const Home = () => {
   const [additionalYearlySpending, setAdditionalYearlySpending] = useState(0);
@@ -16,6 +17,7 @@ const Home = () => {
 
   return (
     <main>
+      <Inputs />
       <Results
         monthlySpending={monthlySpending}
         totalYearlySpending={totalYearlySpending}
