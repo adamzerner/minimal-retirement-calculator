@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Container } from "@chakra-ui/react";
 import { Navbar } from "../components/navbar";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -12,7 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <Component {...pageProps} />;
+      <Container maxW="container.lg">
+        <Component {...pageProps} />
+      </Container>
     </ChakraProvider>
   );
 }
