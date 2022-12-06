@@ -28,7 +28,7 @@ export const Results = ({
       <Stat label="Retirement target" value={toDisplay(retirementTarget)} />
       <Stat
         label="Years until retirement"
-        value={yearsToRetirement.toString()}
+        value={yearsToRetirement.toFixed(2)}
       />
     </SimpleGrid>
   );
