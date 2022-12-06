@@ -12,13 +12,29 @@ type Props = {
   label: string;
   value: number;
   onChange: (valueAsString: string, valueAsNumber: number) => void;
+  min?: number;
+  max?: number;
+  step?: number;
 };
 
-export const NumberInput = ({ label, value, onChange }: Props) => {
+export const NumberInput = ({
+  label,
+  value,
+  onChange,
+  min = 0,
+  max = 1000000,
+  step = 1,
+}: Props) => {
   return (
-    <FormControl>
+    <FormControl mb="3">
       <FormLabel>{label}</FormLabel>
-      <NumberInputChakra value={value} onChange={onChange}>
+      <NumberInputChakra
+        value={value}
+        onChange={onChange}
+        min={min}
+        max={max}
+        step={step}
+      >
         <NumberInputField />
         <NumberInputStepper>
           <NumberIncrementStepper />
