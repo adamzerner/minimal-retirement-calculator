@@ -11,7 +11,7 @@ import * as React from "react";
 
 export const Navbar = () => {
   return (
-    <Box as="section" pb={{ base: "4", md: "8" }}>
+    <Box as="section" pb={{ base: "2", md: "4" }}>
       <Box
         as="nav"
         bg="bg-surface"
