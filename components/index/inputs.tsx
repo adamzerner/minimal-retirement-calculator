@@ -78,7 +78,7 @@ export const Inputs = ({
         <NumberInput
           label={
             <span>
-              Withdrawal Rate
+              Withdrawal Rate (%)
               <a
                 href="https://www.mrmoneymustache.com/2012/05/29/how-much-do-i-need-for-retirement/"
                 style={{ marginLeft: 5, position: "relative", bottom: 2 }}
