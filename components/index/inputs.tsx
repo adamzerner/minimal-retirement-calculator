@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
+import { InfoOutlineIcon } from "@chakra-ui/icons";
 import { NumberInput } from "../number-input";
 
 type Props = {
@@ -73,11 +74,15 @@ export const Inputs = ({
         <NumberInput
           label={
             <span>
-              Withdrawal Rate (
-              <a href="https://www.mrmoneymustache.com/2012/05/29/how-much-do-i-need-for-retirement/">
-                article
+              Withdrawal Rate
+              <a
+                href="https://www.mrmoneymustache.com/2012/05/29/how-much-do-i-need-for-retirement/"
+                style={{ marginLeft: 5, position: "relative", bottom: 2 }}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <InfoOutlineIcon />
               </a>
-              )
             </span>
           }
           value={withdrawalRate}
