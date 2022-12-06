@@ -21,7 +21,7 @@ export const Navbar = () => {
           <Flex justify="center">
             <ButtonGroup variant="ghost" spacing="1">
               <Link href="/">
-                <Button>Home</Button>
+                <Button>Calculator</Button>
               </Link>
               <Link href="/about">
                 <Button>About</Button>
