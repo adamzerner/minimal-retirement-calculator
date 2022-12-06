@@ -1,15 +1,13 @@
-import { Box, Container, SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import { Stat } from "../stat";
 
 type Props = {
-  monthlySpending: number;
   totalYearlySpending: number;
   retirementTarget: number;
   yearsToRetirement: number;
 };
 
 export const Results = ({
-  monthlySpending,
   totalYearlySpending,
   retirementTarget,
   yearsToRetirement,
@@ -22,8 +20,7 @@ export const Results = ({
     });
 
   return (
-    <SimpleGrid columns={{ base: 1, md: 4 }} gap={{ base: "5", md: "6" }}>
-      <Stat label="Monthly spending" value={toDisplay(monthlySpending)} />
+    <SimpleGrid columns={{ base: 1, md: 3 }} gap={{ base: "5", md: "6" }}>
       <Stat
         label="Total yearly spending"
         value={toDisplay(totalYearlySpending)}

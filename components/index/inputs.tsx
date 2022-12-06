@@ -2,6 +2,8 @@ import { Dispatch, SetStateAction } from "react";
 import { NumberInput } from "../number-input";
 
 type Props = {
+  monthlySpending: number;
+  setMonthlySpending: Dispatch<SetStateAction<number>>;
   additionalYearlySpending: number;
   setAdditionalYearlySpending: Dispatch<SetStateAction<number>>;
   currentSavings: number;
@@ -15,6 +17,8 @@ type Props = {
 };
 
 export const Inputs = ({
+  monthlySpending,
+  setMonthlySpending,
   additionalYearlySpending,
   setAdditionalYearlySpending,
   currentSavings,
@@ -28,6 +32,14 @@ export const Inputs = ({
 }: Props) => {
   return (
     <section>
+      <NumberInput
+        label="Monthly spending"
+        value={monthlySpending}
+        onChange={(_, v) => setMonthlySpending(v)}
+        min={0}
+        max={20000}
+        step={100}
+      />
       <NumberInput
         label="Additional yearly spending"
         value={additionalYearlySpending}

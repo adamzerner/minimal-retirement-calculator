@@ -3,12 +3,12 @@ import { Results } from "../components/index/results";
 import { Inputs } from "../components/index/inputs";
 
 const Home = () => {
+  const [monthlySpending, setMonthlySpending] = useState(3500);
   const [additionalYearlySpending, setAdditionalYearlySpending] = useState(0);
   const [currentSavings, setCurrentSavings] = useState(300000);
   const [withdrawalRate, setWithdrawalRate] = useState(4);
   const [retirementBuffer, setRetirementBuffer] = useState(50000);
   const [savingsPerYear, setSavingsPerYear] = useState(100000);
-  const monthlySpending = 3000;
   const totalYearlySpending = additionalYearlySpending + monthlySpending * 12;
   const retirementTarget =
     totalYearlySpending * (100 / withdrawalRate) + retirementBuffer;
@@ -18,6 +18,8 @@ const Home = () => {
   return (
     <main>
       <Inputs
+        monthlySpending={monthlySpending}
+        setMonthlySpending={setMonthlySpending}
         additionalYearlySpending={additionalYearlySpending}
         setAdditionalYearlySpending={setAdditionalYearlySpending}
         currentSavings={currentSavings}
@@ -30,7 +32,6 @@ const Home = () => {
         setRetirementBuffer={setRetirementBuffer}
       />
       <Results
-        monthlySpending={monthlySpending}
         totalYearlySpending={totalYearlySpending}
         retirementTarget={retirementTarget}
         yearsToRetirement={yearsToRetirement}
