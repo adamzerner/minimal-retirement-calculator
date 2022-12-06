@@ -36,6 +36,7 @@ export const Inputs = ({
     <section>
       <Flex gap={5}>
         <NumberInput
+          isCurrency
           label="Monthly spending"
           value={monthlySpending}
           onChange={(_, v) => setMonthlySpending(v)}
@@ -44,6 +45,7 @@ export const Inputs = ({
           step={100}
         />
         <NumberInput
+          isCurrency
           label="Additional yearly spending"
           value={additionalYearlySpending}
           onChange={(_, v) => setAdditionalYearlySpending(v)}
@@ -54,6 +56,7 @@ export const Inputs = ({
       </Flex>
       <Flex gap={5}>
         <NumberInput
+          isCurrency
           label="Current savings"
           value={currentSavings}
           onChange={(_, v) => setCurrentSavings(v)}
@@ -62,6 +65,7 @@ export const Inputs = ({
           step={1000}
         />
         <NumberInput
+          isCurrency
           label="Savings per year"
           value={savingsPerYear}
           onChange={(_, v) => setSavingsPerYear(v)}
@@ -97,6 +101,7 @@ export const Inputs = ({
           }}
         />
         <NumberInput
+          isCurrency
           label="Retirement buffer"
           value={retirementBuffer}
           onChange={(_, v) => setRetirementBuffer(v)}

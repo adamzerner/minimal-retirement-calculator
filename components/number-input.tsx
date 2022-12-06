@@ -13,6 +13,7 @@ import {
   SliderFilledTrack,
   Flex,
 } from "@chakra-ui/react";
+import { toCurrencyDisplay } from "../utilities/to-currency-display";
 
 type Props = {
   label: string | React.ReactNode;
@@ -26,6 +27,7 @@ type Props = {
     max: number;
     step: number;
   };
+  isCurrency?: boolean;
 };
 
 export const NumberInput = ({
@@ -36,6 +38,7 @@ export const NumberInput = ({
   max = 1000000,
   step = 1,
   slider,
+  isCurrency = false,
 }: Props) => {
   return (
     <FormControl mb="3">
@@ -48,6 +51,7 @@ export const NumberInput = ({
           max={max}
           step={step}
           slider={slider}
+          isCurrency={isCurrency}
         />
       ) : (
         <NumberInputWithoutSlider
@@ -56,6 +60,7 @@ export const NumberInput = ({
           min={min}
           max={max}
           step={step}
+          isCurrency={isCurrency}
         />
       )}
     </FormControl>
@@ -68,9 +73,10 @@ const NumberInputWithoutSlider = ({
   min,
   max,
   step,
+  isCurrency,
 }: Omit<Props, "label" | "slider">) => (
   <NumberInputChakra
-    value={value}
+    value={isCurrency ? toCurrencyDisplay(value) : value}
     onChange={onChange}
     min={min}
     max={max}
@@ -91,10 +97,11 @@ const NumberInputWithSlider = ({
   max,
   step,
   slider,
+  isCurrency,
 }: Required<Omit<Props, "label">>) => (
   <Flex>
     <NumberInputChakra
-      value={value}
+      value={isCurrency ? toCurrencyDisplay(value) : value}
       onChange={onChange}
       min={min}
       max={max}
