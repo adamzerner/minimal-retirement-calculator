@@ -79,8 +79,8 @@ export const Inputs = ({
           step={100}
           slider={{
             min: 0,
-            max: 200000,
-            step: 5000,
+            max: 30000,
+            step: 100,
           }}
         />
       </Flex>

@@ -11,7 +11,8 @@ export type Baseline = {
 
 const Home = () => {
   const [monthlySpending, setMonthlySpending] = useState(3500);
-  const [additionalYearlySpending, setAdditionalYearlySpending] = useState(0);
+  const [additionalYearlySpending, setAdditionalYearlySpending] =
+    useState(5000);
   const [currentSavings, setCurrentSavings] = useState(300000);
   const [withdrawalRate, setWithdrawalRate] = useState(4);
   const [retirementBuffer, setRetirementBuffer] = useState(50000);
