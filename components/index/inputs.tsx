@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 import { NumberInput } from "../number-input";
 
@@ -34,7 +34,7 @@ export const Inputs = ({
 }: Props) => {
   return (
     <section>
-      <Flex gap={5}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
         <NumberInput
           isCurrency
           label="Current savings"
@@ -53,8 +53,6 @@ export const Inputs = ({
           max={1000000}
           step={100}
         />
-      </Flex>
-      <Flex gap={5}>
         <NumberInput
           isCurrency
           label="Monthly spending"
@@ -83,8 +81,6 @@ export const Inputs = ({
             step: 100,
           }}
         />
-      </Flex>
-      <Flex gap={5}>
         <NumberInput
           label={
             <span>
@@ -124,7 +120,7 @@ export const Inputs = ({
             step: 5000,
           }}
         />
-      </Flex>
+      </SimpleGrid>
     </section>
   );
 };

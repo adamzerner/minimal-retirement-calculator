@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <Container maxW="container.lg">
+      <Container maxW="container.lg" mb={4}>
         <Component {...pageProps} />
       </Container>
     </ChakraProvider>

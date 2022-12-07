@@ -100,7 +100,7 @@ const NumberInputWithSlider = ({
   slider,
   isCurrency,
 }: Required<Omit<Props, "label">>) => (
-  <Flex>
+  <Box display={{ base: "block", md: "flex" }}>
     <NumberInputChakra
       value={isCurrency ? toCurrencyDisplay(value) : value}
       onChange={onChange}
@@ -124,6 +124,7 @@ const NumberInputWithSlider = ({
       min={slider.min}
       max={slider.max}
       step={slider.step}
+      mt={{ base: 4, md: 0 }}
     >
       <SliderTrack>
         <SliderFilledTrack />
@@ -138,5 +139,5 @@ const NumberInputWithSlider = ({
         </SliderThumb>
       )}
     </Slider>
-  </Flex>
+  </Box>
 );
