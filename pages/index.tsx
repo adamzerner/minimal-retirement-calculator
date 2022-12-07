@@ -1,6 +1,13 @@
 import { useState } from "react";
+import { Button, Box } from "@chakra-ui/react";
 import { Results } from "../components/index/results";
 import { Inputs } from "../components/index/inputs";
+
+export type Baseline = {
+  totalYearlySpending: number;
+  retirementTarget: number;
+  yearsToRetirement: number;
+};
 
 const Home = () => {
   const [monthlySpending, setMonthlySpending] = useState(3500);
@@ -14,6 +21,18 @@ const Home = () => {
     totalYearlySpending * (100 / withdrawalRate) + retirementBuffer;
   const yearsToRetirement =
     (retirementTarget - currentSavings) / savingsPerYear;
+  const [baseline, setBaseline] = useState<Baseline>({
+    totalYearlySpending,
+    retirementTarget,
+    yearsToRetirement,
+  });
+  const setAsBaseline = () => {
+    setBaseline({
+      totalYearlySpending,
+      retirementTarget,
+      yearsToRetirement,
+    });
+  };
 
   return (
     <main>
@@ -35,7 +54,11 @@ const Home = () => {
         totalYearlySpending={totalYearlySpending}
         retirementTarget={retirementTarget}
         yearsToRetirement={yearsToRetirement}
+        baseline={baseline}
       />
+      <Button mt={4} width="100%" onClick={setAsBaseline}>
+        Set as baseline
+      </Button>
     </main>
   );
 };
