@@ -13,6 +13,7 @@ import {
   SliderFilledTrack,
   Flex,
 } from "@chakra-ui/react";
+import { MdGraphicEq } from "react-icons/md";
 import { toCurrencyDisplay } from "../utilities/to-currency-display";
 
 type Props = {
@@ -128,7 +129,9 @@ const NumberInputWithSlider = ({
         <SliderFilledTrack />
       </SliderTrack>
       {slider.max > 99 ? (
-        <SliderThumb />
+        <SliderThumb boxSize="32px">
+          <Box as={MdGraphicEq}></Box>
+        </SliderThumb>
       ) : (
         <SliderThumb fontSize="sm" boxSize="32px">
           {value}
