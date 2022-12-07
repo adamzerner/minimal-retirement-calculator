@@ -37,26 +37,6 @@ export const Inputs = ({
       <Flex gap={5}>
         <NumberInput
           isCurrency
-          label="Monthly spending"
-          value={monthlySpending}
-          onChange={(_, v) => setMonthlySpending(v)}
-          min={0}
-          max={20000}
-          step={100}
-        />
-        <NumberInput
-          isCurrency
-          label="Additional yearly spending"
-          value={additionalYearlySpending}
-          onChange={(_, v) => setAdditionalYearlySpending(v)}
-          min={0}
-          max={1000000}
-          step={100}
-        />
-      </Flex>
-      <Flex gap={5}>
-        <NumberInput
-          isCurrency
           label="Current savings"
           value={currentSavings}
           onChange={(_, v) => setCurrentSavings(v)}
@@ -72,6 +52,36 @@ export const Inputs = ({
           min={0}
           max={1000000}
           step={100}
+        />
+      </Flex>
+      <Flex gap={5}>
+        <NumberInput
+          isCurrency
+          label="Monthly spending"
+          value={monthlySpending}
+          onChange={(_, v) => setMonthlySpending(v)}
+          min={0}
+          max={20000}
+          step={100}
+          slider={{
+            min: 1500,
+            max: 6000,
+            step: 100,
+          }}
+        />
+        <NumberInput
+          isCurrency
+          label="Additional yearly spending"
+          value={additionalYearlySpending}
+          onChange={(_, v) => setAdditionalYearlySpending(v)}
+          min={0}
+          max={1000000}
+          step={100}
+          slider={{
+            min: 0,
+            max: 200000,
+            step: 5000,
+          }}
         />
       </Flex>
       <Flex gap={5}>
