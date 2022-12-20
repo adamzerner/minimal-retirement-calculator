@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import { useState } from "react";
-import { Inputs } from "../components/index/inputs";
-import { Results } from "../components/index/results";
+import { Inputs } from "../components/condensed/inputs";
+import { Results } from "../components/condensed/results";
 
 export type Baseline = {
   totalYearlySpending: number;
