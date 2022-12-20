@@ -31,6 +31,9 @@ export const Navbar = () => {
               >
                 <Button>GitHub</Button>
               </Link>
+              <Link isExternal href="https://www.buymeacoffee.com/adamzerner">
+                <Button>Buy Me a Coffee</Button>
+              </Link>
             </ButtonGroup>
           </Flex>
         </Container>
