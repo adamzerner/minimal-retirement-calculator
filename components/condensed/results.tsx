@@ -1,5 +1,5 @@
 import { SimpleGrid } from "@chakra-ui/react";
-import type { Baseline } from "../../pages";
+import type { Baseline } from "../../pages/condensed";
 import { Stat } from "../stat";
 
 type Props = {
