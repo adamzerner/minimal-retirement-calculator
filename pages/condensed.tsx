@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Inputs } from "../components/condensed/inputs";
 import { Results } from "../components/condensed/results";
 
@@ -33,7 +33,30 @@ const Condensed = () => {
       retirementTarget,
       yearsToRetirement,
     });
+    localStorage.setItem(
+      "baseline",
+      JSON.stringify({
+        monthlySpending,
+        additionalYearlySpending,
+        currentSavings,
+        withdrawalRate,
+        retirementBuffer,
+        savingsPerYear,
+      })
+    );
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("baseline")) {
+      const ls = JSON.parse(localStorage.getItem("baseline") as string);
+      setMonthlySpending(ls.monthlySpending);
+      setAdditionalYearlySpending(ls.additionalYearlySpending);
+      setCurrentSavings(ls.currentSavings);
+      setWithdrawalRate(ls.withdrawalRate);
+      setRetirementBuffer(ls.retirementBuffer);
+      setSavingsPerYear(ls.savingsPerYear);
+    }
+  }, []);
 
   return (
     <main>
