@@ -129,11 +129,11 @@ const NumberInputWithSlider = ({
         <SliderFilledTrack />
       </SliderTrack>
       {slider.max > 99 ? (
-        <SliderThumb boxSize="32px">
+        <SliderThumb boxSize="32px" style={{ cursor: "grab" }}>
           <Box as={MdGraphicEq}></Box>
         </SliderThumb>
       ) : (
-        <SliderThumb fontSize="sm" boxSize="32px">
+        <SliderThumb fontSize="sm" boxSize="32px" style={{ cursor: "grab" }}>
           {value}
         </SliderThumb>
       )}
