@@ -10,13 +10,13 @@ export type Baseline = {
 };
 
 const Condensed = () => {
-  const [monthlySpending, setMonthlySpending] = useState(3500);
+  const [monthlySpending, setMonthlySpending] = useState(2500);
   const [additionalYearlySpending, setAdditionalYearlySpending] =
     useState(5000);
   const [currentSavings, setCurrentSavings] = useState(300000);
   const [withdrawalRate, setWithdrawalRate] = useState(4);
   const [retirementBuffer, setRetirementBuffer] = useState(50000);
-  const [savingsPerYear, setSavingsPerYear] = useState(100000);
+  const [savingsPerYear, setSavingsPerYear] = useState(40000);
   const totalYearlySpending = additionalYearlySpending + monthlySpending * 12;
   const retirementTarget =
     totalYearlySpending * (100 / withdrawalRate) + retirementBuffer;
