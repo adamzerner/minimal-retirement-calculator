@@ -1,7 +1,6 @@
 import { SimpleGrid } from "@chakra-ui/react";
-import { toCurrencyDisplay } from "../../utilities/to-currency-display";
-import { Stat } from "../stat";
 import type { Baseline } from "../../pages";
+import { Stat } from "../stat";
 
 type Props = {
   totalYearlySpending: number;

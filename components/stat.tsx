@@ -1,14 +1,13 @@
 import {
   Box,
-  Heading,
   HStack,
+  Heading,
   Icon,
   Stack,
   Text,
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
-import * as React from "react";
 import { FiArrowDownRight, FiArrowUpRight } from "react-icons/fi";
 import { toCurrencyDisplay } from "../utilities/to-currency-display";
 

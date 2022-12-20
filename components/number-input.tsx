@@ -1,17 +1,16 @@
 import {
   Box,
+  FormControl,
+  FormLabel,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
   NumberInput as NumberInputChakra,
   NumberInputField,
   NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-  FormControl,
-  FormLabel,
   Slider,
-  SliderTrack,
-  SliderThumb,
   SliderFilledTrack,
-  Flex,
+  SliderThumb,
+  SliderTrack,
 } from "@chakra-ui/react";
 import { MdGraphicEq } from "react-icons/md";
 import { toCurrencyDisplay } from "../utilities/to-currency-display";

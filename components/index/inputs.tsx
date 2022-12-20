@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
-import { SimpleGrid } from "@chakra-ui/react";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
+import { SimpleGrid } from "@chakra-ui/react";
+import { Dispatch, SetStateAction } from "react";
 import { NumberInput } from "../number-input";
 
 type Props = {

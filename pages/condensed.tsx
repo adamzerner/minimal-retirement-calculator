@@ -9,7 +9,7 @@ export type Baseline = {
   yearsToRetirement: number;
 };
 
-const Expanded = () => {
+const Condensed = () => {
   const [monthlySpending, setMonthlySpending] = useState(3500);
   const [additionalYearlySpending, setAdditionalYearlySpending] =
     useState(5000);
@@ -64,4 +64,4 @@ const Expanded = () => {
   );
 };
 
-export default Expanded;
+export default Condensed;

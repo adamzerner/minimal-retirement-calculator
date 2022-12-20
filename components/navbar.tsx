@@ -4,10 +4,9 @@ import {
   ButtonGroup,
   Container,
   Flex,
-  Link,
   useColorModeValue,
 } from "@chakra-ui/react";
-import * as React from "react";
+import { Link } from "../components/link";
 
 export const Navbar = () => {
   return (
@@ -21,10 +20,10 @@ export const Navbar = () => {
           <Flex justify="center">
             <ButtonGroup variant="ghost" spacing="1">
               <Link href="/">
-                <Button>Calculator</Button>
+                <Button>Expanded</Button>
               </Link>
-              <Link href="/about">
-                <Button>About</Button>
+              <Link href="/condensed">
+                <Button>Condensed</Button>
               </Link>
               <Link
                 isExternal
