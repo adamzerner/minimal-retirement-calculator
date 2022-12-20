@@ -4,11 +4,16 @@ import {
   ButtonGroup,
   Container,
   Flex,
+  useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { BsGithub } from "react-icons/bs";
+import { SiBuymeacoffee } from "react-icons/si";
 import { Link } from "../components/link";
 
 export const Navbar = () => {
+  const isMobile = useBreakpointValue({ base: true, sm: false });
+
   return (
     <Box as="section" pb={{ base: "2", md: "4" }}>
       <Box
@@ -29,10 +34,12 @@ export const Navbar = () => {
                 isExternal
                 href="https://github.com/adamzerner/minimal-retirement-calculator"
               >
-                <Button>GitHub</Button>
+                <Button>{isMobile ? <BsGithub /> : "GitHub"}</Button>
               </Link>
               <Link isExternal href="https://www.buymeacoffee.com/adamzerner">
-                <Button>Buy Me a Coffee</Button>
+                <Button>
+                  {isMobile ? <SiBuymeacoffee /> : "Buy Me a Coffee"}
+                </Button>
               </Link>
             </ButtonGroup>
           </Flex>
