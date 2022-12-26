@@ -16,6 +16,8 @@ type Props = {
   setWithdrawalRate: Dispatch<SetStateAction<number>>;
   retirementBuffer: number;
   setRetirementBuffer: Dispatch<SetStateAction<number>>;
+  interestPerYear: number;
+  setInterestPerYear: Dispatch<SetStateAction<number>>;
 };
 
 export const Inputs = ({
@@ -31,10 +33,12 @@ export const Inputs = ({
   setWithdrawalRate,
   retirementBuffer,
   setRetirementBuffer,
+  interestPerYear,
+  setInterestPerYear,
 }: Props) => {
   return (
     <section>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5} mb={5}>
         <NumberInput
           isCurrency
           label="Current savings"
@@ -53,6 +57,16 @@ export const Inputs = ({
           max={1000000}
           step={100}
         />
+        <NumberInput
+          label="Interest per year (%)"
+          value={interestPerYear}
+          onChange={(_, v) => setInterestPerYear(v)}
+          min={0}
+          max={30}
+          step={0.5}
+        />
+      </SimpleGrid>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
         <NumberInput
           isCurrency
           label="Monthly spending"

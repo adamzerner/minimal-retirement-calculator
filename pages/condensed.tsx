@@ -2,6 +2,7 @@ import { Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Inputs } from "../components/condensed/inputs";
 import { Results } from "../components/condensed/results";
+import { getYearsToRetirement } from "../utilities/get-years-to-retirement";
 
 export type Baseline = {
   totalYearlySpending: number;
@@ -17,11 +18,15 @@ const Condensed = () => {
   const [withdrawalRate, setWithdrawalRate] = useState(4);
   const [retirementBuffer, setRetirementBuffer] = useState(50000);
   const [savingsPerYear, setSavingsPerYear] = useState(40000);
+  const [interestPerYear, setInterestPerYear] = useState(7);
   const totalYearlySpending = additionalYearlySpending + monthlySpending * 12;
   const retirementTarget =
     totalYearlySpending * (100 / withdrawalRate) + retirementBuffer;
-  const yearsToRetirement =
-    (retirementTarget - currentSavings) / savingsPerYear;
+  const yearsToRetirement = getYearsToRetirement(
+    retirementTarget - currentSavings,
+    savingsPerYear,
+    interestPerYear / 100
+  );
   const [baseline, setBaseline] = useState<Baseline>({
     totalYearlySpending,
     retirementTarget,
@@ -73,6 +78,8 @@ const Condensed = () => {
         setWithdrawalRate={setWithdrawalRate}
         retirementBuffer={retirementBuffer}
         setRetirementBuffer={setRetirementBuffer}
+        interestPerYear={interestPerYear}
+        setInterestPerYear={setInterestPerYear}
       />
       <Results
         totalYearlySpending={totalYearlySpending}

@@ -19,6 +19,7 @@ import { useState } from "react";
 import { Highlight } from "../components/highlight";
 import { Link } from "../components/link";
 import { NumberInput } from "../components/number-input";
+import { getYearsToRetirement } from "../utilities/get-years-to-retirement";
 import { toCurrencyDisplay } from "../utilities/to-currency-display";
 
 const Expanded = () => {
@@ -29,11 +30,15 @@ const Expanded = () => {
   const [retirementBuffer, setRetirementBuffer] = useState(0);
   const [currentSavings, setCurrentSavings] = useState(300000);
   const [savingsPerYear, setSavingsPerYear] = useState(40000);
+  const [interestPerYear, setInterestPerYear] = useState(7);
   const totalYearlySpending = additionalYearlySpending + monthlySpending * 12;
   const retirementTarget =
     totalYearlySpending * (100 / withdrawalRate) + retirementBuffer;
-  const yearsToRetirement =
-    (retirementTarget - currentSavings) / savingsPerYear;
+  const yearsToRetirement = getYearsToRetirement(
+    retirementTarget - currentSavings,
+    savingsPerYear,
+    interestPerYear / 100
+  );
 
   return (
     <main>
@@ -382,28 +387,45 @@ const Expanded = () => {
                 max={1000000}
                 step={100}
               />
-              <Alert status="info" style={{ marginTop: 25 }}>
+              <Text>
+                And how much interest do you expect it to generate each year?
+              </Text>
+              <NumberInput
+                label="Interest per year (%)"
+                value={interestPerYear}
+                onChange={(_, v) => setInterestPerYear(v)}
+                min={0}
+                max={30}
+                step={0.5}
+                slider={{
+                  min: 0,
+                  max: 10,
+                  step: 1,
+                }}
+              />
+              <Alert status="info">
                 <Stack spacing={3}>
                   <Text>
-                    Yes, this is a bit of a tricky question to answer. It
-                    depends on things like:
+                    You probably want to use something like 5-7%. From Mr. Money
+                    Mustache's post{" "}
+                    <Link
+                      isExternal
+                      href="https://www.mrmoneymustache.com/2014/11/04/why-i-put-my-last-100000-into-betterment/"
+                    >
+                      Why I Put My Last $100,000 into Betterment
+                    </Link>
+                    :
                   </Text>
-                  <UnorderedList stylePosition="inside">
-                    <ListItem>Salary increases</ListItem>
-                    <ListItem>Compounding interest</ListItem>
-                    <ListItem>The stock market</ListItem>
-                    <ListItem>Life</ListItem>
-                  </UnorderedList>
-                  <Text>
-                    Our goal here is to avoid overwhelming ourselves and just
-                    get in the right ballpark though. So in that spirit,
-                    consider these factors, squint your eyes, and do your best
-                    to come up with an approximation.
-                  </Text>
+                  <Image
+                    src="https://www.mrmoneymustache.com/wp-content/uploads/2014/11/investment.png"
+                    alt="A few asset types with expected annual return after inflation."
+                    width={356}
+                    height={474}
+                  />
                 </Stack>
               </Alert>
               <Text>
-                With those two values we can now get our final answer of...
+                With these three values we can now get our final answer of...
               </Text>
               <Stat>
                 <StatLabel>Years until retirement</StatLabel>
