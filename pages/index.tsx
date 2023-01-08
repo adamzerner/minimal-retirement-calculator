@@ -321,9 +321,10 @@ const Expanded = () => {
                 </Stat>
               </StatGroup>
               <Text style={{ marginTop: 25 }}>
-                You may want to add a little buffer to your retirement target
-                though. Just in case. Doing so below will update the results
-                above.
+                If you're extra conservative, you may want to add a little
+                buffer to your retirement target. Ie. maybe you want to add an
+                extra $50k to the previous result to provide additional
+                breathing rooom. You can do so below.
               </Text>
               <NumberInput
                 isCurrency
