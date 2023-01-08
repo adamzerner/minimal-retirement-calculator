@@ -134,7 +134,8 @@ const Expanded = () => {
               />
               <Text>
                 What would you like to use for your withdrawal rate? Think about
-                how aggressive or conservative you want to be.{" "}
+                how aggressive or conservative you want to be. 4% is
+                conservative, 7% is aggressive.{" "}
               </Text>
               <NumberInput
                 label="Withdrawal rate"
