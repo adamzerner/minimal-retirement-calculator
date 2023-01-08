@@ -50,6 +50,20 @@ const Condensed = () => {
       })
     );
   };
+  const reset = () => {
+    const localStorageBaseline = localStorage.getItem("baseline");
+
+    if (localStorageBaseline) {
+      const baselineValues = JSON.parse(localStorageBaseline);
+
+      setMonthlySpending(baselineValues.monthlySpending);
+      setAdditionalYearlySpending(baselineValues.additionalYearlySpending);
+      setCurrentSavings(baselineValues.currentSavings);
+      setWithdrawalRate(baselineValues.withdrawalRate);
+      setRetirementBuffer(baselineValues.retirementBuffer);
+      setSavingsPerYear(baselineValues.savingsPerYear);
+    }
+  };
 
   useEffect(() => {
     if (localStorage.getItem("baseline")) {
@@ -89,6 +103,9 @@ const Condensed = () => {
       />
       <Button mt={4} width="100%" onClick={setAsBaseline}>
         Set as baseline
+      </Button>
+      <Button mt={4} width="100%" onClick={reset}>
+        Reset
       </Button>
     </main>
   );
