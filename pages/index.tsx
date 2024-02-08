@@ -35,9 +35,10 @@ const Expanded = () => {
   const retirementTarget =
     totalYearlySpending * (100 / withdrawalRate) + retirementBuffer;
   const yearsToRetirement = getYearsToRetirement(
-    retirementTarget - currentSavings,
+    currentSavings,
     savingsPerYear,
-    interestPerYear / 100
+    interestPerYear,
+    retirementTarget
   );
 
   return (

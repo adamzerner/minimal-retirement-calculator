@@ -1,10 +1,22 @@
-// https://www.wallstreetiswaiting.com/running-the-numbers-1/calculating-interest-recurring-payments/
-export const getYearsToRetirement = (y: number, p: number, r: number) => {
-  if (r === 0) {
-    return y / p;
+export const getYearsToRetirement = (
+  currentSavings: number,
+  savingsPerYear: number,
+  interestRate: number,
+  target: number
+) => {
+  const monthlyRate = interestRate / 12 / 100;
+  const monthlySavings = savingsPerYear / 12;
+
+  let months = 0;
+  let retirementFund = currentSavings;
+
+  while (retirementFund < target) {
+    retirementFund = retirementFund * (1 + monthlyRate);
+    retirementFund += monthlySavings;
+    months++;
   }
 
-  return logBase(Math.abs((y * r) / p + 1), 1 + r);
-};
+  const years = months / 12;
 
-const logBase = (n: number, base: number) => Math.log(n) / Math.log(base);
+  return years;
+};
